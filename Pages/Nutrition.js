@@ -4,6 +4,9 @@ import { StyleSheet, Image, Text, Button, TouchableOpacity,Linking, View, Scroll
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableWithoutFeedback } from 'react-native-web';
 
+// Add your own key from spoonacular.com
+const SPOONACULAR_API_KEY = 'YOUR_SPOONACULAR_API_KEY';
+
 export default function Nutrition({ navigation }) {
   
       //styling for nutrition page
@@ -200,7 +203,7 @@ export default function Nutrition({ navigation }) {
     function fetchSearchData() {
       setSearchQuery(inputValue);
       if (searchQuery != '') {
-        fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${searchQuery}&apiKey=90a3bf60228f4c3b8726f01e12cad772&addRecipeInformation=true&number=7`)
+        fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${searchQuery}&apiKey=${SPOONACULAR_API_KEY}&addRecipeInformation=true&number=7`)
           .then(response => response.json())
           .then(data => {
            console.log(data.results);
